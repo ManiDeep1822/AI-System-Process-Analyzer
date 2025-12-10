@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI System Process Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256' viewBox='0 0 256 256'%3E%3Crect x='40' y='40' width='176' height='176' rx='24' fill='%232c3e50'/%3E%3Cpath d='M70 128h40l20-28 20 56 20-28h16' stroke='white' stroke-width='14' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI System Process Analyzer</h1>
+            <div class="controls">
+                <button id="startBtn" class="btn btn-primary">Start Monitoring</button>
+                <button id="stopBtn" class="btn btn-danger" disabled>Stop Monitoring</button>
+                <button id="exportBtn" class="btn btn-secondary">Export Report</button>
+                <div class="status">
+                    <span id="statusIndicator" class="status-offline"></span>
+                    <span id="statusText">Offline</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard">
+            <!-- System Overview -->
+            <div class="card system-overview">
+                <h2>📊 System Overview</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value" id="cpuUsage">0%</div>
+                        <div class="metric-label">CPU Usage</div>
+                        <div class="metric-progress">
+                            <div class="progress-bar">
+                                <div id="cpuProgress" class="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="memoryUsage">0%</div>
+                        <div class="metric-label">Memory Usage</div>
+                        <div class="metric-progress">
+                            <div class="progress-bar">
+                                <div id="memoryProgress" class="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="totalProcesses">0</div>
+                        <div class="metric-label">Total Processes</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="systemHealth">Healthy</div>
+                        <div class="metric-label">System Health</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Process Table -->
+            <div class="card process-table">
+                <h2>🔥 Running Processes</h2>
+                <div class="table-container">
+                    <table id="processTable">
+                        <thead>
+                            <tr>
+                                <th>PID</th>
+                                <th>Name</th>
+                                <th>CPU %</th>
+                                <th>Memory %</th>
+                                <th>Memory (MB)</th>
+                                <th>Status</th>
+                                <th>AI Analysis</th>
+                            </tr>
+                        </thead>
+                        <tbody id="processTableBody">
+                            <!-- Process data will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- AI Analysis -->
+            <div class="analysis-section">
+                <div class="card anomalies-card">
+                    <h2>⚠️ AI Anomaly Detection</h2>
+                    <div id="anomaliesList" class="anomalies-list">
+                        <!-- Anomalies will be populated here -->
+                    </div>
+                </div>
+
+                <div class="card recommendations-card">
+                    <h2>💡 AI Recommendations</h2>
+                    <div id="recommendationsList" class="recommendations-list">
+                        <!-- Recommendations will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="card charts-card">
+                <h2>📈 Performance Trends</h2>
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <canvas id="cpuChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="memoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alerts Panel -->
+            <div class="card alerts-card">
+                <h2>🚨 Real-time Alerts</h2>
+                <div id="alertsList" class="alerts-list">
+                    <!-- Alerts will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
