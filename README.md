@@ -65,8 +65,8 @@ It simulates or ingests system-level data, applies anomaly detection, generates 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/ManiDeep1822/AI-System-Process-Analyzer.git
+cd AI-System-Process-Analyzer
 ```
 
 ### 2. Launch the application
@@ -224,3 +224,4 @@ Pull requests are welcome.
 For major changes, open an issue first to discuss improvements.
 
 ---
+
