@@ -1,22 +1,26 @@
 # ProcessOptima – AI System Process Analyzer
 
-A real-time, AI-powered system monitoring dashboard that analyzes CPU, memory, running processes, detects anomalies, and provides intelligent optimization insights. Built with **HTML, CSS, JavaScript, and Chart.js**.
+ProcessOptima is a **real-time, AI-powered system monitoring dashboard** that analyzes CPU usage, memory usage, and running processes, detects anomalies, and generates intelligent optimization recommendations.
+
+The system uses a **Node.js backend** to collect live operating system metrics and a **browser-based frontend** to visualize and analyze the data.
+
+Built with **HTML, CSS, JavaScript, Chart.js, and Node.js**.
 
 ---
 
 ## 📌 Overview
 
-ProcessOptima converts system metrics into actionable intelligence.
+ProcessOptima converts **real-time operating system metrics** into actionable intelligence.
 
-It simulates or ingests system-level data, applies anomaly detection, generates recommendations, and displays everything in a modern, responsive dashboard.
+The backend collects system-level data directly from the OS, while the frontend performs AI-based analysis, visualization, alerting, and reporting in real time.
 
 ### Use Cases
 
-- OS monitoring demonstrations
-- Performance visualization
-- AI-based system diagnostics
-- Educational/student projects
-- Prototype monitoring tools
+- Operating Systems lab demonstrations
+- Real-time system performance monitoring
+- AI-assisted diagnostics and alerts
+- Educational and academic projects
+- Prototype system monitoring tools
 
 ---
 
@@ -24,69 +28,113 @@ It simulates or ingests system-level data, applies anomaly detection, generates 
 
 ### Real-Time Monitoring
 
-- Live CPU & Memory usage
-- Auto-sorted process table
-- System health scoring
+- Live CPU usage
+- Live memory usage
+- Auto-sorted running process list
+- Total process count
+- System health evaluation
 
 ### AI Analysis Engine
 
-- Per-process anomaly scoring
-- Optimization recommendations
-- Real-time alerts (Low / Medium / High)
-- Historical analysis
+- Per-process anomaly detection
+- Threshold-based and heuristic analysis
+- System-level optimization recommendations
+- Real-time alerts (Low / Medium / High severity)
+- Historical trend analysis
 
 ### Visualizations
 
 - CPU usage trend chart
 - Memory usage trend chart
-- Smooth UI transitions
+- Responsive and interactive UI
 
 ### Reporting
 
 - One-click JSON report export
-- Includes system summary, anomalies, and history
+- Includes:
+  - Timestamped system snapshots
+  - Anomalies
+  - Recommendations
+  - Historical data
 
 ---
 
 ## 📁 Project Structure
 
 ```
-/
-├── index.html      → Main UI layout
-├── style.css       → Complete UI styles
-├── script.js       → Monitoring logic & AI engine
-└── README.md       → Documentation
-```
+
+AI-System-Process-Analyzer/
+│
+├── backend/
+│   ├── server.js        # Node.js backend (real OS data)
+│   └── package.json
+│
+├── frontend/
+│   ├── index.html       # UI layout
+│   ├── style.css        # UI styles
+│   └── script.js        # Monitoring logic & AI engine
+│
+└── README.md
+
+````
 
 ---
 
 ## 🚀 Installation & Setup
 
-### 1. Clone the repository
+### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/ManiDeep1822/AI-System-Process-Analyzer.git
+cd AI-System-Process-Analyzer
+````
+
+---
+
+### 2️⃣ Backend setup (Required for real-time data)
+
+```bash
+cd backend
+npm install
+node server.js
 ```
 
-### 2. Launch the application
-
-Simply open:
+The backend starts at:
 
 ```
-index.html
+http://localhost:3000
 ```
 
-No server required unless connecting to a backend.
+---
 
-### 3. (Optional) Use real system metrics
+### 3️⃣ Run the frontend
 
-Replace the simulation functions inside `script.js`:
+Open the following file in a browser (preferably using Live Server):
 
-- `collectSystemData()`
-- `collectProcessData()`
+```
+frontend/index.html
+```
 
-with backend API calls.
+---
+
+## 🔌 Input Method (IMPORTANT)
+
+* The **input to the system comes from the operating system itself**
+* A **Node.js backend** collects:
+
+  * CPU usage
+  * Memory usage
+  * Running processes
+* This data is sent to the frontend through a REST API
+* The frontend consumes this data every few seconds and uses it as input for:
+
+  * AI analysis
+  * Charts
+  * Alerts
+  * Recommendations
+
+> Static (fake) data was used only during early UI development and testing.
+> The final implementation uses **real-time OS data**.
 
 ---
 
@@ -96,77 +144,74 @@ with backend API calls.
 
 Detects:
 
-- CPU spikes
-- Memory overuse
-- Deviations from system baseline
+* High CPU usage per process
+* High memory consumption
+* System-wide overload conditions
 
 ### Recommendation Generator
 
 Provides:
 
-- System-level optimization tips
-- Process-level performance tuning
-- Security alerts
+* CPU optimization suggestions
+* Memory usage optimization tips
+* Process-level warnings
+* Preventive system advice
 
 ### Alert Engine
 
-Triggers:
+Triggers alerts for:
 
-- High CPU load
-- Memory exhaustion
-- Multiple anomalies
-- Process-level critical warnings
+* Critical CPU load
+* Memory exhaustion
+* Multiple anomalous processes
+* System instability risks
 
 ---
 
 ## 📊 UI Components
 
-### System Overview
+### System Overview Panel
 
-- CPU Usage
-- Memory Usage
-- Total Processes
-- System Health Score
+* CPU Usage
+* Memory Usage
+* Total Processes
+* System Health Status
 
 ### Process Table
 
 Displays:
 
-- PID
-- Name
-- CPU %
-- Memory %
-- Memory (MB)
-- AI Analysis Badge
+* PID
+* Process Name
+* CPU %
+* Memory %
+* Memory Usage (MB)
+* AI Analysis Status
 
 ### Charts
 
-- CPU usage line chart
-- Memory usage line chart
+* CPU usage over time
+* Memory usage over time
 
 ### Alerts Panel
 
-- Real-time alert stream
-- Severity-based highlighting
+* Live alerts
+* Severity-based color coding
 
 ---
 
-## 📦 Exportable Report Example
+## 📦 Exported Report Format
 
 ```json
 {
   "generatedAt": "timestamp",
-  "monitoringDurationSeconds": 120,
-  "systemHealth": {
-    "averageCPU": 45.6,
-    "averageMemory": 68.2,
-    "peakCPU": 92.3,
-    "peakMemory": 94.1
+  "system": {
+    "cpuUsage": 62.4,
+    "memoryUsage": 71.3
   },
-  "processStatistics": {
-    "totalSnapshots": 10,
-    "averageProcesses": 134,
-    "maxConcurrentProcesses": 165
+  "analysis": {
+    "anomalies": [],
+    "recommendations": []
   }
 }
 ```
@@ -175,52 +220,40 @@ Displays:
 
 ## 🛠️ Technologies Used
 
-- HTML5
-- CSS3
-- JavaScript (ES6)
-- Chart.js
-- Custom heuristic AI model
+* HTML5
+* CSS3
+* JavaScript (ES6)
+* Chart.js
+* Node.js
+* systeminformation (OS-level metrics)
 
 ---
 
 ## ⚙️ Future Enhancements
 
-- Real OS-level data (Node/Python agent)
-- Dark/Light mode
-- WebSocket live updates
-- ML-based anomaly models
-- Process inspection/termination features
+* WebSocket-based live streaming
+* Machine learning anomaly models
+* Process inspection and termination
+* Cross-machine monitoring
+* Dark / Light mode toggle
 
 ---
 
-## 📸 Screenshots (Optional)
+## 📤 Deployment Notes
 
-Add your screenshots here:
+* Frontend can be deployed on:
 
-- Dashboard Overview
-- Process Table
-- Charts
-- Alerts Panel
-
----
-
-## 📤 Deployment
-
-Compatible with:
-
-- GitHub Pages
-- Netlify
-- Vercel
-- Any static hosting platform
-
-Simulation mode works without backend setup.
+  * GitHub Pages
+  * Netlify
+  * Vercel
+* Backend must run separately to provide real-time OS data
 
 ---
 
 ## 🤝 Contributing
 
-Pull requests are welcome.
+Contributions are welcome.
 
-For major changes, open an issue first to discuss improvements.
+Please open an issue before making major changes.
 
 ---
